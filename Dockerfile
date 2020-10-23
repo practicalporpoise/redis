@@ -1,4 +1,4 @@
-FROM nginx
+FROM node
 RUN apt-get update \
  && apt-get install --no-install-recommends --no-install-suggests -y \
  python-pip \
@@ -8,4 +8,6 @@ RUN apt-get update \
  libssl-dev \
  magic-wormhole
 
-COPY nginx.conf /etc/nginx/nginx.conf
+COPY index.js .
+
+CMD node index.js
